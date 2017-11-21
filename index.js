@@ -1,6 +1,6 @@
 import fs from 'fs'
 import os from 'os'
-import mongoose from 'mongoose'
+let mongoose
 
 let relations={}
 
@@ -70,7 +70,8 @@ const getRelationText = (table1, table2)=>{
   return `${table1} *--* ${table2} {label: "${table1}"}${os.EOL}`
 }
 
-const toString = ()=>{
+const toString = (localMongoose)=>{
+  mongoose = localMongoose
   const modelNames = mongoose.modelNames()
   if (!mongoose.models[modelNames[0]]){
     throw new Error('mongoose models not loaded, please load them before using mongoose-erd tool')
@@ -106,9 +107,9 @@ const toString = ()=>{
 }
 export default {
   toString,
-  toFile(filePath='schema.er'){
+  toFile(localMongoose, filePath='schema.er'){
     return new Promise((resolve,reject)=>{
-      fs.writeFile(filePath, toString(),(err)=>{
+      fs.writeFile(filePath, toString(localMongoose),(err)=>{
         if (err){
           reject(err)
         }else{

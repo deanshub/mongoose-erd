@@ -26,7 +26,6 @@
   "dependencies": {
     "babel-plugin-transform-import-commonjs": "^1.0.0",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "mongoose": "^4.13.4"
+    "babel-preset-stage-0": "^6.24.1"
   }
 }
