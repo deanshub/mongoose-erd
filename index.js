@@ -49,9 +49,9 @@ const getAttributeText = (modelName, model, attr)=>{
   const uniqueText = unique?'+':''
 
   const aliasText = alias?` (${alias})`:''
-  const defaultText = attrModel.default?` [${attrModel.default}]`:''
-  const indexText = index?' index':''
-  const mainText = `${attr} {label: "${attr} ${aliasText},${required?' not null':''}${defaultText}${indexText}"}`
+  const defaultText = attrModel.default?`, [${attrModel.default}]`:''
+  const indexText = index?', Index':''
+  const mainText = `${attr} {label: "${attr} ${aliasText}${required?', not null':''}${defaultText}${indexText}"}`
 
   if (ref){
     if (!relations[modelName]){
