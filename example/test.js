@@ -1,6 +1,6 @@
-import mongooseErd from '../';
-import player from './player'
-import post from './post'
+import mongooseErd from "../";
+import player from "./player";
+import post from "./post";
 
 // console.log(mongooseErd.toString())
-mongooseErd.toFile()
+mongooseErd.toFile();
